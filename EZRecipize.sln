@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZRecipize", "EZRecipize\EZRecipize.csproj", "{410EB410-8E77-45D3-B0DF-14948DACC83F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EZRecipize", "EZRecipize\EZRecipize.csproj", "{410EB410-8E77-45D3-B0DF-14948DACC83F}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RecipiesDatabase", "Recipies\RecipiesDatabase.sqlproj", "{A074953C-142B-4C29-B556-5D584A8568E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,12 @@ Global
 		{410EB410-8E77-45D3-B0DF-14948DACC83F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{410EB410-8E77-45D3-B0DF-14948DACC83F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{410EB410-8E77-45D3-B0DF-14948DACC83F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A074953C-142B-4C29-B556-5D584A8568E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A074953C-142B-4C29-B556-5D584A8568E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A074953C-142B-4C29-B556-5D584A8568E5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A074953C-142B-4C29-B556-5D584A8568E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A074953C-142B-4C29-B556-5D584A8568E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A074953C-142B-4C29-B556-5D584A8568E5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
