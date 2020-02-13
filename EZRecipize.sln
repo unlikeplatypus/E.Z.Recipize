@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZRecipize", "EZRecipize\EZRecipize.csproj", "{410EB410-8E77-45D3-B0DF-14948DACC83F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{410EB410-8E77-45D3-B0DF-14948DACC83F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{410EB410-8E77-45D3-B0DF-14948DACC83F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{410EB410-8E77-45D3-B0DF-14948DACC83F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{410EB410-8E77-45D3-B0DF-14948DACC83F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21C52660-3F8D-4E54-B6CB-D186405FFCA7}
+	EndGlobalSection
+EndGlobal
