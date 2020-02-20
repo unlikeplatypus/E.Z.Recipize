@@ -8,7 +8,15 @@ namespace EZRecipize.Controllers
 {
     public class RecipeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Recipes()
+        {
+            return View();
+        }
+        public IActionResult RecipeDetails()
+        {
+            return View();
+        }
+        public IActionResult RecipeCooking()
         {
             return View();
         }
