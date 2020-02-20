@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+
+
+namespace EZRecipize.Models
+{
+    public class Ingredient
+    {
+        [Required(ErrorMessage = "you need to put what the ingredient is called")]
+        public string Name { get; set; }
+        [Required(ErrorMessage = "you need to put what amount of the ingredient is needed")]
+        public float Amount { get; set; }
+        [Required(ErrorMessage ="you need to put what unit of measurement is being used")]
+        public string Unit { get; set; }
+        [UIHint("if there is a size of vegtable or another factor into how much is used")]
+        public string SpecialInstructions { get; set; }
+
+    }
+}
