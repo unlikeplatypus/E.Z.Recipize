@@ -21,6 +21,11 @@ nav {
     background-color: #807E79;
 }
 
+body {
+    text-align: center;
+    color: #FFFCF1;
+}
+
 .buttons {
     margin: 10%;
     text-align: center;
