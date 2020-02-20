@@ -6,15 +6,17 @@
 </head>
 <body>
     <header>
-        <div style="text-align:center">
-            <h1>E.Z.Recipize</h1>
+        <div style="align-content:center">
+            <h1 style="display:inline-block;">E.Z.Recipize</h1>
+            <button style="display:inline-block; float: right;" class="btn-hover color-8" onclick="location.href = '/Account/Account'">Account</button>
         </div>
-        <nav>
-            <button class="btn-hover color-8" onclick="location.href = '/Home/Index'">Home</button>
-            <button class="btn-hover color-8" onclick="location.href = '/Recipe/Recipes'">Recipies</button>
-            <button class="btn-hover color-8" onclick="location.href = '/Home/About'">About</button>
-            <button style="float: right;" class="btn-hover color-8" onclick="location.href = '/Account/Account'">Account</button>
-        </nav>
+        <div>
+            <nav>
+                <button class="btn-hover color-8" onclick="location.href = '/Home/Index'">Home</button>
+                <button class="btn-hover color-8" onclick="location.href = '/Recipe/Recipes'">Recipies</button>
+                <button class="btn-hover color-8" onclick="location.href = '/Home/About'">About</button>
+            </nav>
+        </div>
     </header>
     @RenderBody()
     <footer style="text-align:center">
