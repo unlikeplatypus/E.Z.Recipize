@@ -8,7 +8,15 @@ namespace EZRecipize.Controllers
 {
     public class AccountController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Account()
+        {
+            return View();
+        }
+        public IActionResult LogIn()
+        {
+            return View();
+        }
+        public IActionResult SignUp()
         {
             return View();
         }
