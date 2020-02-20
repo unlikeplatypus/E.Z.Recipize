@@ -9,6 +9,16 @@ namespace EZRecipize.Models
 {
     public class Ingredient
     {
+        public Ingredient(string name, float amount, string unit, string specialInstructions)
+        {
+            Name = name;
+            Amount = amount;
+            Unit = unit;
+            SpecialInstructions = specialInstructions;
+        }
+
+        public Ingredient() { }
+
         [Required(ErrorMessage = "you need to put what the ingredient is called")]
         public string Name { get; set; }
         [Required(ErrorMessage = "you need to put what amount of the ingredient is needed")]

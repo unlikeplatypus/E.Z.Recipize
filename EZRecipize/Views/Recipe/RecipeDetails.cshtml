@@ -1,7 +1,46 @@
-﻿@{
-    ViewData["Title"] = "RecipeDetails";
+﻿@model Recipe
+
+<h1>@Model.RecipeName=</h1>
+<p>@Model.RecipeDescription</p>
+<h2>instructions:</h2>
+@if(Model.Steps != null)
+{
+
+    @foreach (RecipeStep s in Model.Steps)
+    {
+        <h3>Step a number:</h3>
+
+        if(s.RequiredCookware != null)
+        {
+            <h4>required cookware:</h4>
+            foreach (string c in s.RequiredCookware)
+            {
+                <p>@c</p>
+            }
+        }
+        if (s.SuggestedCookware != null)
+        {
+            <h4>Suggested cookware:</h4>
+            foreach (string c in s.SuggestedCookware)
+            {
+                <p>@c</p>
+            }
+        }
+        if (s.Ingredients != null)
+        {
+            <h4>Ingreedients:</h4>
+            foreach (Ingredient i in s.Ingredients)
+            {
+                <p>@i.Name @i.Amount @i.Unit (@i.SpecialInstructions)</p>
+            }
+        }
+
+        <p>@s.Instructions</p>
+
+        if(s.IsTimer)
+        {
+            <h4>Timer:</h4>
+            <p>@s.Timer</p>
+        }
+    }
 }
-
-<div class="text-center">
-
-</div>

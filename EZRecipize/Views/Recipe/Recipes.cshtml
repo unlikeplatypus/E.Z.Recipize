@@ -1,5 +1,25 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model List<Recipe>
+
+
+@foreach(Recipe r in Model)
+{
+    <p>@r.RecipeName</p>
+    <a asp-controller="Recipe" asp-action="RecipeDetails" asp-route-recipe="@r">@r.RecipeName</a>
+    <p>@r.RecipeDescription</p>
+    <p>@r.Steps.Count() steps</p>
+    if(r.Steps != null)
+    {
+    <p>ingredients:</p>
+        List<Ingredient> ingredients = new List<Ingredient>();
+        foreach(RecipeStep s in r.Steps)
+        {
+            if(s.Ingredients != null)
+            {
+                foreach (Ingredient i in s.Ingredients)
+                {
+                    <p>@i.Name, @i.Amount, @i.Unit</p>
+                }
+            }
+        }
+    }
 }
