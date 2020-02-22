@@ -2,22 +2,25 @@
 <html lang="en">
 <head>
     <link href="~/css/site.css" rel="stylesheet" />
+    <title>E.Z.Recipize</title>
 </head>
 <body>
     <header>
-        <div style="text-align:center">
-            <h1>E.Z.Recipize</h1>
+        <div style="align-content:center">
+            <h1 style="display:inline-block;">E.Z.Recipize</h1>
+            <button style="display:inline-block; float: right;" class="btn-hover color-8" onclick="location.href = '/Account/Account'">Account</button>
         </div>
-        <nav>
+        <div>
+            <nav>
                 <button class="btn-hover color-8" onclick="location.href = '/Home/Index'">Home</button>
                 <button class="btn-hover color-8" onclick="location.href = '/Recipe/Recipes'">Recipies</button>
                 <button class="btn-hover color-8" onclick="location.href = '/Home/About'">About</button>
-                <button style="float: right;" class="btn-hover color-8" onclick="location.href = '/Account/Account'">Account</button>
-        </nav>
+            </nav>
+        </div>
     </header>
     @RenderBody()
-<footer style="text-align:center">
-    <p>Copyright ©2020 by Stupid-R-Us</p>
-</footer>
+    <footer style="text-align:center">
+        <p>Copyright ©2020 by Stupid-R-Us</p>
+    </footer>
 </body>
 </html>
