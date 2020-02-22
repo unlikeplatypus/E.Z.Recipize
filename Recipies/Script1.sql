@@ -8,8 +8,8 @@ go
 
 create table Bulldogs(
 	BulldogId int not null primary key,
-	[Name] varchar(50) not null,
-	Nickname varchar(50) null,
+	[Name] varchar(5) not null,
+	Nickname varchar(5) null,
 	DoB date not null check(DoB <= getdate()),
 	Age int not null check(Age >= 0),
 	PrimaryPersonId int not null references Person(PersonId) --refers to valid PersonId
