@@ -20,8 +20,10 @@ nav {
 
 body {
     text-align: center;
+    align-content: center;
     color: #FFFCF1;
 }
+
 .textBox{
     backface-visibility: visible;
     background-color: darkgrey;
