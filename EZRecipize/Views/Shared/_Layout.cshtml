@@ -6,9 +6,13 @@
 </head>
 <body>
     <header>
-        <div style="align-content:center">
-            <h1 style="display:inline-block;">E.Z.Recipize</h1>
-            <button style="display:inline-block; float: right;" class="btn-hover color-8" onclick="location.href = '/Account/Account'">Account</button>
+        <div class="headDiv">
+            <div>
+                <h1>E.Z.Recipize</h1>
+            </div>
+            <div>
+                <button class="btn-hover color-8" onclick="location.href = '/Account/Account'">Account</button>
+            </div>
         </div>
         <div>
             <nav>
@@ -18,8 +22,15 @@
             </nav>
         </div>
     </header>
+    <br />
+    <br />
     @RenderBody()
-    <footer style="text-align:center">
+    <footer>
+        <hr />
+        <br />
+        <br />
+        <br />
+        <br />
         <p>Copyright ©2020 by Stupid-R-Us</p>
     </footer>
 </body>
