@@ -1,25 +1,27 @@
 ﻿@model List<Recipe>
 
 
-@foreach(Recipe r in Model)
+@for(int i = 0; i < Model.Count; i++)
 {
-    <p>@r.RecipeName</p>
-    <a asp-controller="Recipe" asp-action="RecipeDetails" asp-route-recipe="@r">@r.RecipeName</a>
-    <p>@r.RecipeDescription</p>
-    <p>@r.Steps.Count() steps</p>
-    if(r.Steps != null)
+    
+    <p>@Model.ElementAt(i).RecipeName</p>
+    <a asp-controller="Recipe" asp-action="RecipeDetails" asp-route-recipe="i">@Model.ElementAt(i).RecipeName</a>
+    <p>@Model.ElementAt(i).RecipeDescription</p>
+    <p>@Model.ElementAt(i).Steps.Count() steps</p>
+    if(@Model.ElementAt(i).Steps != null)
     {
     <p>ingredients:</p>
         List<Ingredient> ingredients = new List<Ingredient>();
-        foreach(RecipeStep s in r.Steps)
+        foreach(RecipeStep s in Model.ElementAt(i).Steps)
         {
             if(s.Ingredients != null)
             {
-                foreach (Ingredient i in s.Ingredients)
+                foreach (Ingredient ingredient in s.Ingredients)
                 {
-                    <p>@i.Name, @i.Amount, @i.Unit</p>
+                    <p>@ingredient.Name, @ingredient.Amount, @ingredient.Unit</p>
                 }
             }
         }
+        
     }
 }

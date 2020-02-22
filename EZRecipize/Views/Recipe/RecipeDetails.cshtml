@@ -1,46 +1,46 @@
 ﻿@model Recipe
 
-<h1>@Model.RecipeName=</h1>
+<h1>@Model.RecipeName</h1>
 <p>@Model.RecipeDescription</p>
 <h2>instructions:</h2>
 @if(Model.Steps != null)
 {
 
-    @foreach (RecipeStep s in Model.Steps)
+    @for (int i = 0; i < Model.Steps.Count; i++)
     {
-        <h3>Step a number:</h3>
+        <h3>Step number: @(i+1)</h3>
 
-        if(s.RequiredCookware != null)
+        if(Model.Steps.ElementAt(i).RequiredCookware != null)
         {
             <h4>required cookware:</h4>
-            foreach (string c in s.RequiredCookware)
+            foreach (string c in Model.Steps.ElementAt(i).RequiredCookware)
             {
                 <p>@c</p>
             }
         }
-        if (s.SuggestedCookware != null)
+        if (Model.Steps.ElementAt(i).SuggestedCookware != null)
         {
             <h4>Suggested cookware:</h4>
-            foreach (string c in s.SuggestedCookware)
+            foreach (string c in Model.Steps.ElementAt(i).SuggestedCookware)
             {
                 <p>@c</p>
             }
         }
-        if (s.Ingredients != null)
+        if (Model.Steps.ElementAt(i).Ingredients != null)
         {
             <h4>Ingreedients:</h4>
-            foreach (Ingredient i in s.Ingredients)
+            foreach (Ingredient ingredient in Model.Steps.ElementAt(i).Ingredients)
             {
-                <p>@i.Name @i.Amount @i.Unit (@i.SpecialInstructions)</p>
+                <p>@ingredient.Name @ingredient.Amount @ingredient.Unit (@ingredient.SpecialInstructions)</p>
             }
         }
+        <h4>Instructions</h4>
+        <p>@Model.Steps.ElementAt(i).Instructions</p>
 
-        <p>@s.Instructions</p>
-
-        if(s.IsTimer)
+        if(Model.Steps.ElementAt(i).IsTimer)
         {
             <h4>Timer:</h4>
-            <p>@s.Timer</p>
+            <p>@Model.Steps.ElementAt(i).Timer</p>
         }
     }
 }

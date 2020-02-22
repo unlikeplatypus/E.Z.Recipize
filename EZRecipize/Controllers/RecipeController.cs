@@ -52,9 +52,9 @@ namespace EZRecipize.Controllers
             return View(recipes);
         }
         
-        public IActionResult RecipeDetails(Recipe recipe)
+        public IActionResult RecipeDetails(int recipeNum)
         {
-            return View(recipe);
+            return View(recipes.ElementAt(recipeNum));
         }
         public IActionResult RecipeCooking()
         {
