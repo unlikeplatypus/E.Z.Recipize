@@ -8,13 +8,10 @@
     box-sizing: border-box;
 }
 
-h1 {
-    font-size: 50px;
-    color: #FFFCF1;
-}
 
 footer {
     color: #FFFCF1;
+    text-align:center;
 }
 
 nav {
@@ -25,11 +22,27 @@ body {
     text-align: center;
     color: #FFFCF1;
 }
-
-.buttons {
-    margin: 10%;
+.textBox{
+    backface-visibility: visible;
+    background-color: darkgrey;
+}
+.titleTxt {
+    font-size: 50px;
+    color: #FFFCF1;
+    display: inline-block;
+}
+.headDiv {
+    align-content: center;
+    align-items: center;
     text-align: center;
 }
+    .headDiv h1 {
+        display: inline-block;
+    }
+
+    .headDiv button {
+        float: right;
+    }
 
 .btn-hover {
     width: 200px;
