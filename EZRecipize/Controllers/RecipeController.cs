@@ -10,7 +10,7 @@ namespace EZRecipize.Controllers
     public class RecipeController : Controller
     {
 
-        public List<Recipe> recipes = new List<Recipe>()
+        public static List<Recipe> recipes = new List<Recipe>()
         {
             new Recipe("baked Chicken","a simple baked chicken recipy", new List<RecipeStep>
             {
