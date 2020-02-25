@@ -1,8 +1,9 @@
-﻿<body>
+﻿@model List<Recipe>
+<body>
     <div>
         <h2>Welcome to E.Z.Recipize!</h2>
         <br />
-        <div class="textBox">
+        <div>
             <p>Here at E.Z.Recipize, we try to make the lives of home cooks easier. Our ease of access recipies make finding the right things to cook quick and easy.</p>
             <p>Our tutorial system makes it so that you can follow along the recipe in an easy to read way.</p>
             <p>Our goal is to keep things organized for home cooks and to keep you moving at all times so you always have somehting to do while in the kitchen.</p>
@@ -14,10 +15,10 @@
         <hr />
         <div>
             <div>
-                <h4>Baked Chicken</h4>
-                <h4>Baked Chicken</h4>
-                <h4>Baked Chicken</h4>
-                <h4>Baked Chicken</h4>
+                @foreach(Recipe recipe in Model.Take(5))
+                {
+                    <a asp-controller="Recipe" asp-action="RecipeDetails" asp-route-recipe="i">@recipe.RecipeName</a>
+                }
             </div>
         </div>
     </div>

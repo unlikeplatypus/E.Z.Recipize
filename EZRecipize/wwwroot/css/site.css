@@ -20,11 +20,16 @@ nav {
 
 body {
     text-align: center;
+    align-content: center;
     color: #FFFCF1;
 }
-.textBox{
-    backface-visibility: visible;
-    background-color: darkgrey;
+a:link{
+    color: #FFFCF1;
+    font-size:24px;
+}
+a:visited {
+    color: #FFFCF1;
+    font-size: 24px;
 }
 .titleTxt {
     font-size: 50px;
