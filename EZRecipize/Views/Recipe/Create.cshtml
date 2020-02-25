@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "RecipieEntry";
+}
+
+@model Recipe
+
+<h1>RecipieEntry</h1>
+
+<form method="post">
+    <p>
+        <label asp-for="RecipeName">Name Of Recipie:</label>
+        <input asp-for="RecipeName" />
+        <span asp-validation-for="RecipeName"></span>
+    </p>
+    <p>
+        <label asp-for="RecipeDescription">Description Of Recipie:</label>
+        <input asp-for="RecipeDescription" />
+        <span asp-validation-for="RecipeDescription"></span>
+    </p>
+
+
+    <p><button type="submit">Submit</button></p>
+</form>
+
+<script type="text/javascript">
+
+        $(document).ready(function() {
+            var $fields = $('#fields');
+            $('#btnAddField').click(function(e) {
+                e.preventDefault();
+                $('<input type="text" name="dynamicField" /><br/>').appendTo($fields);
+            });
+        });
+
+</script>

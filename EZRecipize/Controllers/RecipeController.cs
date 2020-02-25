@@ -56,9 +56,29 @@ namespace EZRecipize.Controllers
         {
             return View(recipes.ElementAt(recipeNum));
         }
+
         public IActionResult RecipeCooking()
         {
             return View();
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Recipe recipe)
+        {
+            if (ModelState.IsValid)
+            {
+                recipes.Add(recipe);
+                return View("RecipeDetails",recipes.IndexOf(recipe));
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
