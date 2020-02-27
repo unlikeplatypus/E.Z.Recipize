@@ -14,7 +14,12 @@ namespace EZRecipize.Models
             RecipeDescription = recipeDescription;
             Steps = steps;
         }
-        public Recipe() { }
+        public Recipe() 
+        {
+            RecipeName = "";
+            RecipeDescription = "";
+            Steps = new List<RecipeStep>();
+        }
 
         [Required(ErrorMessage = "the recipe needs to have a name")]
         public string RecipeName { get; set; }

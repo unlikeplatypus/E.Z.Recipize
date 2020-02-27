@@ -46,6 +46,7 @@ namespace EZRecipize.Controllers
 
             })
         };
+        private static Recipe recipe;
 
         public IActionResult Recipes()
         {
@@ -62,23 +63,51 @@ namespace EZRecipize.Controllers
             return View();
         }
 
-        public IActionResult Create()
+        public IActionResult Create(bool active = false)
         {
+            if(!active)
+            {
+                recipe = new Recipe();
+            }
+
+            return View(recipe);
+        }
+
+        [HttpPost]
+        public IActionResult Create(Recipe recipeTemp)
+        {
+            if (ModelState.IsValid)
+            {
+                recipes.Add(recipeTemp);
+                return View("RecipeDetails", recipeTemp);
+            }
+            else
+            {
+                return View(recipe);
+            }
+        }
+
+        public IActionResult CreateStep(Recipe r)
+        {
+            recipe.RecipeName = r.RecipeName;
+            recipe.RecipeDescription = r.RecipeDescription;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Recipe recipe)
+        public IActionResult CreateStep(RecipeStep step)
         {
             if (ModelState.IsValid)
             {
-                recipes.Add(recipe);
-                return View("RecipeDetails",recipes.IndexOf(recipe));
+                recipe.Steps.Add(step);
+                //return Create(true);
+                return View("Create", recipe);
             }
             else
             {
                 return View();
             }
         }
+
     }
 }

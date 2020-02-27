@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Ingredient";
+}
+
+@model Ingredient
+
+<h1>Ingredient</h1>
+
+<form>
+
+    <p>
+        <label asp-for="Name">what is the ingredient:</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </p>
+    <p>
+        <label asp-for="Amount">how much is needed:</label>
+        <input asp-for="Amount" />
+        <span asp-validation-for="Amount"></span>
+    </p>
+    <p>
+        <label asp-for="Unit">what unit is it being mesured in:</label>
+        <input asp-for="Unit" />
+        <span asp-validation-for="Unit"></span>
+    </p>
+    <p>
+        <label asp-for="SpecialInstructions">are there any special instructions for the ingredient:</label>
+        <input asp-for="SpecialInstructions" />
+        <span asp-validation-for="SpecialInstructions"></span>
+    </p>
+</form>

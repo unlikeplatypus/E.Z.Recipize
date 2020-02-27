@@ -18,12 +18,44 @@
         <input asp-for="RecipeDescription" />
         <span asp-validation-for="RecipeDescription"></span>
     </p>
+    @if (Model.Steps != null && Model.Steps.Count > 0)
+    {
+        @foreach (var item in Model.Steps)
+        {
+
+            <p>Step @Model.Steps.IndexOf(item)</p>
+            <p>ingredients</p>
+            @*foreach (var ingredient in item.Ingredients)
+                {
+                    <p>@ingredient.Name : @ingredient.Amount @ingredient.Unit (Special Instructions: @ingredient.SpecialInstructions )</p>
+                }*@
+            <p>required Cookware</p>
+            foreach (string cookware in item.RequiredCookware)
+            {
+                <p>@cookware</p>
+            }
+            <p>suggested Cookware</p>
+            foreach (string cookware in item.SuggestedCookware)
+            {
+                <p>@cookware</p>
+            }
+            if (item.IsTimer)
+            {
+                <p>Timer: @item.Timer</p>
+            }
+        }
+    }
+
+    <a asp-controller="Recipe" asp-action="CreateStep" asp-route-recipe="@Model">Add Step</a>
 
 
+    <p>/n</p>
+
+    @*<p><button type="button">AddField</button></p>*@
     <p><button type="submit">Submit</button></p>
 </form>
 
-<script type="text/javascript">
+@*<script type="text/javascript">
 
         $(document).ready(function() {
             var $fields = $('#fields');
@@ -33,4 +65,4 @@
             });
         });
 
-</script>
+</script>*@
