@@ -2,67 +2,62 @@
 <h1>@Model.RecipeName</h1>
 @if (Model.Steps != null)
 {
-    /*Image*/
-    <div>
-
-    </div>
-    /*Ingredients*/
-    <div class="RecipeBox">
-        <h3>Ingredients:</h3>
-        @for (int i = 0; i < Model.Steps.Count; i++)
-        {
-            if (Model.Steps.ElementAt(i).Ingredients != null)
-            {
-                foreach (Ingredient ingredient in Model.Steps.ElementAt(i).Ingredients)
-                {
-                    <p>@ingredient.Name @ingredient.Amount @ingredient.Unit (@ingredient.SpecialInstructions)</p>
-                }
-            }
-        }
-    </div>
-    /*Controls*/
-    <div>
-
-    </div>
-    /*Cookware*/
-    <div class="RecipeBox">
-        <div>
-            <h3>Required Cookware:</h3>
+    <div class="wrapper">
+        <div class="RecipeBox ImageBox">
+            <p>Image here</p>
+        </div>
+        <div class="RecipeBox IngredientBox">
+            <h3>Ingredients:</h3>
             @for (int i = 0; i < Model.Steps.Count; i++)
             {
-                if (Model.Steps.ElementAt(i).RequiredCookware != null)
+                if (Model.Steps.ElementAt(i).Ingredients != null)
                 {
-                    foreach (string c in Model.Steps.ElementAt(i).RequiredCookware)
+                    foreach (Ingredient ingredient in Model.Steps.ElementAt(i).Ingredients)
                     {
-                        <p>@c</p>
+                        <p>@ingredient.Name @ingredient.Amount @ingredient.Unit (@ingredient.SpecialInstructions)</p>
                     }
                 }
             }
         </div>
-        <div>
-            <h3>Suggested cookware:</h3>
-            @for (int i = 0; i < Model.Steps.Count; i++)
-            {
-                if (Model.Steps.ElementAt(i).SuggestedCookware != null)
+        <div class="RecipeBox CookwareBox">
+            <div>
+                <h3>Required Cookware:</h3>
+                @for (int i = 0; i < Model.Steps.Count; i++)
                 {
-                    foreach (string c in Model.Steps.ElementAt(i).SuggestedCookware)
+                    if (Model.Steps.ElementAt(i).RequiredCookware != null)
                     {
-                        <p>@c</p>
+                        foreach (string c in Model.Steps.ElementAt(i).RequiredCookware)
+                        {
+                            <p>@c</p>
+                        }
                     }
                 }
+            </div>
+            <div>
+                <h3>Suggested cookware:</h3>
+                @for (int i = 0; i < Model.Steps.Count; i++)
+                {
+                    if (Model.Steps.ElementAt(i).SuggestedCookware != null)
+                    {
+                        foreach (string c in Model.Steps.ElementAt(i).SuggestedCookware)
+                        {
+                            <p>@c</p>
+                        }
+                    }
+                }
+            </div>
+        </div>
+        <div class="RecipeBox StepsBox">
+            <h3>Steps:</h3>
+            @for (int i = 0; i < Model.Steps.Count; i++)
+            {
+                <h4>Step number: @(i + 1)</h4>
+                <p>@Model.Steps.ElementAt(i).Instructions</p>
             }
+            <div>
+                <button class="btn-hover color-8" onclick="location.href = '/Recipe/Recipes'">Start Tutorial</button>
+            </div>
         </div>
     </div>
-    /*Recipe*/
-    <div class="RecipeBox">
-        <h3>Steps:</h3>
-        @for (int i = 0; i < Model.Steps.Count; i++)
-        {
-            <h4>Step number: @(i + 1)</h4>
-            <p>@Model.Steps.ElementAt(i).Instructions</p>
-        }
-        <div>
 
-        </div>
-    </div>
 }
