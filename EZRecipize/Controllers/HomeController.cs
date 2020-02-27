@@ -13,7 +13,7 @@ namespace EZRecipize.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View(RecipeController.recipes);
         }
 
         public IActionResult About()

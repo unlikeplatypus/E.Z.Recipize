@@ -11,7 +11,7 @@
 
 footer {
     color: #FFFCF1;
-    text-align:center;
+    text-align: center;
 }
 
 nav {
@@ -23,16 +23,28 @@ body {
     align-content: center;
     color: #FFFCF1;
 }
+
+.RecipeBox {
+    border: dashed
+}
+
+.titleLink {
+    color: #FFFCF1;
+    font-size: 24px;
+}
+
 .titleTxt {
     font-size: 50px;
     color: #FFFCF1;
     display: inline-block;
 }
+
 .headDiv {
     align-content: center;
     align-items: center;
     text-align: center;
 }
+
     .headDiv h1 {
         display: inline-block;
     }

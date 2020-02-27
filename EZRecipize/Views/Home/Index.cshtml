@@ -1,4 +1,5 @@
-﻿<body>
+﻿@model List<Recipe>
+<body>
     <div>
         <h2>Welcome to E.Z.Recipize!</h2>
         <br />
@@ -14,10 +15,10 @@
         <hr />
         <div>
             <div>
-                <h4>Baked Chicken</h4>
-                <h4>Baked Chicken</h4>
-                <h4>Baked Chicken</h4>
-                <h4>Baked Chicken</h4>
+                @foreach(Recipe recipe in Model.Take(5))
+                {
+                    <a class="titleLink" asp-controller="Recipe" asp-action="RecipeDetails" asp-route-recipe="i">@recipe.RecipeName</a>
+                }
             </div>
         </div>
     </div>

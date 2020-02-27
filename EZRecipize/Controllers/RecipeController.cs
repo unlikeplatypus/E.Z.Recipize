@@ -10,9 +10,9 @@ namespace EZRecipize.Controllers
     public class RecipeController : Controller
     {
 
-        public List<Recipe> recipes = new List<Recipe>()
+        public static List<Recipe> recipes = new List<Recipe>()
         {
-            new Recipe("baked Chicken","a simple baked chicken recipy", new List<RecipeStep>
+            new Recipe("Baked Chicken","a simple baked chicken recipy", new List<RecipeStep>
             {
                 new RecipeStep("preheat oven to 400 degrees",null, new List<string>{"convention oven"}, null),
                 new RecipeStep("Wash you hands with hot water and soap",null, null, null),

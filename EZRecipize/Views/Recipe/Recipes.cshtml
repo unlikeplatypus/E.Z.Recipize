@@ -5,6 +5,7 @@
     <br />
     <hr />
     <div>
+        <button class="btn-hover color-8" onclick="location.href = '/Recipe/Create'">Create Recipe</button>
         <table border="1" style="margin:auto">
             <thead>
                 <tr>
@@ -24,7 +25,7 @@
                 {
                     <tr>
                         <td>
-                            <a asp-controller="Recipe" asp-action="RecipeDetails" asp-route-recipe="i">@Model.ElementAt(i).RecipeName</a>
+                            <a class="titleLink" asp-controller="Recipe" asp-action="RecipeDetails" asp-route-recipe="@i">@Model.ElementAt(i).RecipeName</a>
                         </td>
                         <td>
                             <p>@Model.ElementAt(i).RecipeDescription</p>
