@@ -10,28 +10,30 @@
             <div>
                 <h1>E.Z.Recipize</h1>
             </div>
-            <div>
-                <button class="btn-hover color-8" onclick="location.href = '/Account/Account'">Account</button>
-            </div>
         </div>
         <div>
             <nav>
                 <button class="btn-hover color-8" onclick="location.href = '/Home/Index'">Home</button>
                 <button class="btn-hover color-8" onclick="location.href = '/Recipe/Recipes'">Recipies</button>
                 <button class="btn-hover color-8" onclick="location.href = '/Home/About'">About</button>
+                <partial name="_LoginPartial" />
             </nav>
         </div>
     </header>
-    <br />
-    <br />
-    @RenderBody()
-    <footer>
-        <hr />
-        <br />
-        <br />
-        <br />
-        <br />
-        <p>Copyright ©2020 by Stupid-R-Us</p>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - WebApp1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
     </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
