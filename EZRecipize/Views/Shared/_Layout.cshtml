@@ -18,7 +18,7 @@
                     <a class="links" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name.Split("@")[0]!</a>
 
                     <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                        <button type="submit" class="btn-hover color-8">Logout</button>
+                        <button type="submit" class="links">Logout</button>
                     </form>
                 }
                 else
