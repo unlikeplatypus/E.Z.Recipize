@@ -23,6 +23,7 @@ body {
     align-content: center;
     color: #FFFCF1;
 }
+
 .wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -52,6 +53,7 @@ body {
     border: dashed;
     padding: 20px;
 }
+
 .links {
     color: #FFFCF1;
 }
@@ -76,7 +78,7 @@ body {
         display: inline-block;
     }
 
-    .headDiv ul {
+    .headDiv div {
         display: inline-block;
         float: right;
     }
