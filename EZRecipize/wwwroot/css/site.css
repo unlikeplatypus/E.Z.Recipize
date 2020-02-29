@@ -52,7 +52,9 @@ body {
     border: dashed;
     padding: 20px;
 }
-
+.links {
+    color: #FFFCF1;
+}
 .titleLink {
     color: #FFFCF1;
     font-size: 24px;
@@ -74,7 +76,8 @@ body {
         display: inline-block;
     }
 
-    .headDiv button {
+    .headDiv ul {
+        display: inline-block;
         float: right;
     }
 
