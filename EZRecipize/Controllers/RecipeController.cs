@@ -63,7 +63,7 @@ namespace EZRecipize.Controllers
             return View();
         }
 
-        public IActionResult Create(bool active = false)
+        public IActionResult Create(bool active)
         {
             if(!active)
             {
@@ -101,6 +101,7 @@ namespace EZRecipize.Controllers
             {
                 recipe.Steps.Add(step);
                 //return Create(true);
+                //return RedirectToAction("Create", true);
                 return View("Create", recipe);
             }
             else

@@ -23,7 +23,7 @@
         @foreach (var item in Model.Steps)
         {
 
-            <p>Step @Model.Steps.IndexOf(item)</p>
+            <p>Step @(Model.Steps.IndexOf(item) + 1)</p>
             <p>ingredients</p>
             @*foreach (var ingredient in item.Ingredients)
                 {
@@ -52,7 +52,7 @@
     <p>/n</p>
 
     @*<p><button type="button">AddField</button></p>*@
-    <p><button type="submit">Submit</button></p>
+    <p><button asp-action="Create" type="submit" >Submit</button></p>
 </form>
 
 @*<script type="text/javascript">
