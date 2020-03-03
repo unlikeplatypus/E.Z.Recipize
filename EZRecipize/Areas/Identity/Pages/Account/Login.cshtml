@@ -1,28 +1,27 @@
 ﻿@page
 @model LoginModel
 
-@{
-    ViewData["Title"] = "Log in";
-}
-
-<h1>@ViewData["Title"]</h1>
 <div class="row">
     <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
+        <form id="account" method="post">
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <br />
+            <br />
+            <div class="grayBox">
+                <h1>Log in</h1>
                 <div class="form-group">
                     <label asp-for="Input.Email"></label>
                     <input asp-for="Input.Email" class="form-control" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
+                <br />
                 <div class="form-group">
                     <label asp-for="Input.Password"></label>
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
+                <br />
                 <div class="form-group">
                     <div class="checkbox">
                         <label asp-for="Input.RememberMe">
@@ -32,21 +31,21 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <button type="submit" class="btn-hover color-8">Log in</button>
                 </div>
-                <div class="form-group">
-                    <p>
-                        <a class="links" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a class="links" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                </div>
-            </form>
-        </section>
+            </div>
+            <br />
+            <div class="form-group">
+                <p>
+                    <a class="links" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                </p>
+                <p>
+                    <a class="links" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Don't have an account?</a>
+                </p>
+            </div>
+        </form>
     </div>
 </div>
-<hr />
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

@@ -10,9 +10,9 @@
 </head>
 <body>
     <header>
-        <div class="headDiv">
-                <h1>E.Z.Recipize</h1>
-            <div>
+        <div class="headerGrid">
+            <h1 class="headerTitle">E.Z.Recipize</h1>
+            <div class="headerLinks">
                 @if (SignInManager.IsSignedIn(User))
                 {
                     <a class="links" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name.Split("@")[0]!</a>
@@ -41,7 +41,7 @@
             @RenderBody()
         </main>
     </div>
-
+    <hr />
     <footer class="border-top footer text-muted">
         <div class="container">
             <p> &copy; 2020 Copyright Stupid-R-Us</p>

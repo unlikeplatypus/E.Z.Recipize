@@ -24,6 +24,28 @@ body {
     color: #FFFCF1;
 }
 
+.headerGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.headerTitle{
+    grid-column:2;
+}
+.grayBox {
+    padding: 30px;
+    background-color: #807E79;
+    backface-visibility: visible;
+    width: 500px;
+    margin: auto;
+    border-radius: 50px;
+}
+.headerLinks {
+    grid-column: 3;
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -50,7 +72,10 @@ body {
 }
 
 .RecipeBox {
-    border: dashed;
+    border: double;
+    border-color: #807E79;
+    border-radius: 50px;
+    border-width: thick;
     padding: 20px;
 }
 
