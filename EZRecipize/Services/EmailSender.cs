@@ -2,14 +2,10 @@
 using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace EZRecipize.Services
 {
-
     public class EmailSender : IEmailSender
     {
         public EmailSender(IOptions<AuthMessageSenderOptions> optionsAccessor)
@@ -43,6 +39,7 @@ namespace EZRecipize.Services
             return client.SendEmailAsync(msg);
         }
     }
+
     public class AuthMessageSenderOptions
     {
         public string SendGridUser { get; set; }
