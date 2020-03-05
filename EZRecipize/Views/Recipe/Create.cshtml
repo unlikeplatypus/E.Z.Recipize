@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "RecipieEntry";
+}
+
+@model Recipe
+
+<h1>RecipieEntry</h1>
+
+<form method="post">
+    <p>
+        <label asp-for="RecipeName">Name Of Recipie:</label>
+        <input asp-for="RecipeName" />
+        <span asp-validation-for="RecipeName"></span>
+    </p>
+    <p>
+        <label asp-for="RecipeDescription">Description Of Recipie:</label>
+        <input asp-for="RecipeDescription" />
+        <span asp-validation-for="RecipeDescription"></span>
+    </p>
+    @if (Model != null && Model.Steps != null && Model.Steps.Count > 0)
+    {
+        @foreach (var item in Model.Steps)
+        {
+
+            <p>Step @(Model.Steps.IndexOf(item) + 1)</p>
+            <p>ingredients</p>
+
+            foreach (Ingredient ingredient in item.Ingredients)
+                {
+                    <p>@ingredient.Name : @ingredient.Amount @ingredient.Unit (Special Instructions: @ingredient.SpecialInstructions )</p>
+                }
+            if(item.RequiredCookware != null)
+            {
+                <p>required Cookware</p>
+                foreach (string cookware in item.RequiredCookware)
+                {
+                    <p>@cookware</p>
+                }
+            }
+            if(item.SuggestedCookware != null)
+            {
+                <p>suggested Cookware</p>
+                foreach (string cookware in item.SuggestedCookware)
+                {
+                    <p>@cookware</p>
+                }
+            }
+            if (item.IsTimer)
+            {
+                <p>Timer: @item.Timer</p>
+            }
+        }
+    }
+
+    @*<a class="titleLink" asp-controller="Recipe" asp-action="CreateStep" asp-route-recipe="@Model">Add Step</a>*@
+    <p><button class="titleLink" asp-action="Create" asp-route-addingStep="True" type="submit">Add Step</button></p>
+
+    <p><button asp-action="Create" type="submit" >Submit</button></p>
+</form>

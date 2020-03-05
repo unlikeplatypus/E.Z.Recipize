@@ -25,7 +25,7 @@
                 {
                     <tr>
                         <td>
-                            <a class="titleLink" asp-controller="Recipe" asp-action="RecipeDetails" asp-route-recipe="@i">@Model.ElementAt(i).RecipeName</a>
+                            <a id="@Model.ElementAt(i).Id" class="titleLink" asp-controller="Recipe" asp-action="RecipeDetails" asp-route-recipeId="@Model.ElementAt(i).Id">@Model.ElementAt(i).RecipeName</a>
                         </td>
                         <td>
                             <p>@Model.ElementAt(i).RecipeDescription</p>

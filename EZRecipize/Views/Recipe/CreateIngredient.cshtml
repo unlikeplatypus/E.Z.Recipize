@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "CreateIngredient";
+}
+@model Ingredient
+
+<h1>Ingredient</h1>
+
+<form method="post">
+
+    <p>
+        <label asp-for="Name">Name Of Ingredient:</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </p>
+    <p>
+        <label asp-for="Amount">Amount:</label>
+        <input asp-for="Amount" />
+        <span asp-validation-for="Amount"></span>
+    </p>
+    <p>
+        <label asp-for="Unit">unit:</label>
+        <input asp-for="Unit" />
+        <span asp-validation-for="Unit"></span>
+    </p> 
+    <p>
+        <label asp-for="SpecialInstructions">special requirments:</label>
+        <input asp-for="SpecialInstructions" />
+        <span asp-validation-for="SpecialInstructions"></span>
+    </p>
+    <p><button type="submit">Submit</button></p>
+
+</form>
