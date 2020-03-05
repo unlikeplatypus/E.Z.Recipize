@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Threading.Tasks;
 using EZRecipize.Services;
+using System;
 
 [assembly: HostingStartup(typeof(EZRecipize.Areas.Identity.IdentityHostingStartup))]
 namespace EZRecipize.Areas.Identity
@@ -21,11 +22,14 @@ namespace EZRecipize.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("EZRecipizeContextConnection")));
 
-            //services.AddTransient<IEmailSender, EmailSender>();
-            //    services.Configure<AuthMessageSenderOptions>(context.Configuration);
+                services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromHours(3));
+
+                services.AddTransient<IEmailSender, EmailSender>();
+                services.Configure<AuthMessageSenderOptions>(context.Configuration);
 
                 services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                .AddEntityFrameworkStores<EZRecipizeContext>();
+
                 services.AddControllersWithViews();
                 services.AddRazorPages();
             });
