@@ -14,21 +14,31 @@
         <input asp-for="Instructions" />
         <span asp-validation-for="Instructions"></span>
     </p>
+    @if (Model != null && Model.RequiredCookware != null && Model.RequiredCookware.Count > 0)
+    {
+        foreach (string s in Model.RequiredCookware)
+        {
+            <p>@s</p>
+        }
+    }
     <p>
-        <label asp-for="RequiredCookware">Cookware required for this step:</label>
-        <input asp-for="RequiredCookware" />
-        <span asp-validation-for="RequiredCookware"></span>
+        <label asp-for="TempRequiredCookware">Cookware required for this step:</label>
+        <input asp-for="TempRequiredCookware" />
+        <span asp-validation-for="TempRequiredCookware"></span>
     </p>
+    @if (Model != null && Model.SuggestedCookware != null && Model.SuggestedCookware.Count > 0)
+    {
+        foreach (string s in Model.RequiredCookware)
+        {
+            <p>@s</p>
+        }
+    }
+    @*@Model.RequiredCookware.Add("");*@
     <p>
-        <label asp-for="SuggestedCookware">Cookware suggested for this step:</label>
-        <input asp-for="SuggestedCookware" />
-        <span asp-validation-for="SuggestedCookware"></span>
+        <label asp-for="TempSuggestedCookware">Cookware suggested for this step:</label>
+        <input asp-for="TempSuggestedCookware" />
+        <span asp-validation-for="TempSuggestedCookware"></span>
     </p>
-    @*<p>
-        <label asp-for="Ingredients">what ingredients are nessicary for this step:</label>
-        <input asp-for="Ingredients" />
-        <span asp-validation-for="Ingredients"></span>
-    </p>*@
     <p>
         <label asp-for="IsTimer">Is there a timer for this step:</label>
         <input asp-for="IsTimer" />
@@ -40,6 +50,16 @@
         <input asp-for="Timer" />
         <span asp-validation-for="Timer"></span>
     </p>
-    <p><button type="submit">Submit</button></p>
+    @if (Model != null && Model.Ingredients != null)
+    {
+        foreach (Ingredient i in Model.Ingredients)
+        {
+            <p>@i.Name @i.Amount @i.Unit (@i.SpecialInstructions)</p>
+        }
+    }
+
+    <p><button class="titleLink" asp-action="CreateStep" asp-route-addingIngredient="True" type="submit">Add Ingedient</button></p>
+
+    <p><button asp-action="CreateStep" type="submit">Submit</button></p>
 
 </form>

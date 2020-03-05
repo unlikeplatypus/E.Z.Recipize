@@ -18,26 +18,33 @@
         <input asp-for="RecipeDescription" />
         <span asp-validation-for="RecipeDescription"></span>
     </p>
-    @if (Model.Steps != null && Model.Steps.Count > 0)
+    @if (Model != null && Model.Steps != null && Model.Steps.Count > 0)
     {
         @foreach (var item in Model.Steps)
         {
 
             <p>Step @(Model.Steps.IndexOf(item) + 1)</p>
             <p>ingredients</p>
-            @*foreach (var ingredient in item.Ingredients)
+
+            foreach (Ingredient ingredient in item.Ingredients)
                 {
                     <p>@ingredient.Name : @ingredient.Amount @ingredient.Unit (Special Instructions: @ingredient.SpecialInstructions )</p>
-                }*@
-            <p>required Cookware</p>
-            foreach (string cookware in item.RequiredCookware)
+                }
+            if(item.RequiredCookware != null)
             {
-                <p>@cookware</p>
+                <p>required Cookware</p>
+                foreach (string cookware in item.RequiredCookware)
+                {
+                    <p>@cookware</p>
+                }
             }
-            <p>suggested Cookware</p>
-            foreach (string cookware in item.SuggestedCookware)
+            if(item.SuggestedCookware != null)
             {
-                <p>@cookware</p>
+                <p>suggested Cookware</p>
+                foreach (string cookware in item.SuggestedCookware)
+                {
+                    <p>@cookware</p>
+                }
             }
             if (item.IsTimer)
             {
@@ -46,23 +53,8 @@
         }
     }
 
-    <a asp-controller="Recipe" asp-action="CreateStep" asp-route-recipe="@Model">Add Step</a>
+    @*<a class="titleLink" asp-controller="Recipe" asp-action="CreateStep" asp-route-recipe="@Model">Add Step</a>*@
+    <p><button class="titleLink" asp-action="Create" asp-route-addingStep="True" type="submit">Add Step</button></p>
 
-
-    <p>/n</p>
-
-    @*<p><button type="button">AddField</button></p>*@
     <p><button asp-action="Create" type="submit" >Submit</button></p>
 </form>
-
-@*<script type="text/javascript">
-
-        $(document).ready(function() {
-            var $fields = $('#fields');
-            $('#btnAddField').click(function(e) {
-                e.preventDefault();
-                $('<input type="text" name="dynamicField" /><br/>').appendTo($fields);
-            });
-        });
-
-</script>*@
