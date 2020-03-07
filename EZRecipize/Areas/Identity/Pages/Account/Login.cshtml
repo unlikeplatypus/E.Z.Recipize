@@ -10,6 +10,8 @@
             <br />
             <div class="grayBox">
                 <h1>Log in</h1>
+                <hr />
+                <br />
                 <div class="form-group">
                     <label asp-for="Input.Email"></label>
                     <input asp-for="Input.Email" class="form-control" />
@@ -36,9 +38,6 @@
             </div>
             <br />
             <div class="form-group">
-                <p>
-                    <a class="links" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                </p>
                 <p>
                     <a class="links" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Don't have an account?</a>
                 </p>

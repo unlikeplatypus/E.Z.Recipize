@@ -52,14 +52,16 @@
     </p>
     @if (Model != null && Model.Ingredients != null)
     {
-        foreach (Ingredient i in Model.Ingredients)
+        <div class="RecipeBox">
+        @foreach (Ingredient i in Model.Ingredients)
         {
             <p>@i.Name @i.Amount @i.Unit (@i.SpecialInstructions)</p>
         }
+        </div>
     }
 
-    <p><button class="titleLink" asp-action="CreateStep" asp-route-addingIngredient="True" type="submit">Add Ingedient</button></p>
+    <button class="btn-hover color-8" asp-action="CreateStep" asp-route-addingIngredient="True" type="submit">Add Ingedient</button>
 
-    <p><button asp-action="CreateStep" type="submit">Submit</button></p>
+    <button class="btn-hover color-8" asp-action="CreateStep" type="submit">Submit</button>
 
 </form>
