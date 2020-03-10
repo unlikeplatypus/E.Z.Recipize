@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model Recipe
+
+
+    <h1>Begin cooking @Model.RecipeName</h1>
+    <form action="/" method="post">
+
+        <button asp-controller="Cooking" asp-action="Tutorial">Begin</button>
+    </form>

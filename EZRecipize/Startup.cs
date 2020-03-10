@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using EZRecipize.Models;
+using Microsoft.EntityFrameworkCore;
 //using WebPWrecover.Services;
 
 namespace EZRecipize
@@ -28,6 +30,9 @@ namespace EZRecipize
             services.AddControllersWithViews();
 
             services.AddMvc();
+
+            //services.AddDbContext<RecipeDBContext>(opt => opt.UseSqlServer(C))
+            //services.AddDbContext<RecipeDBContext>(opt => opt.UseSqlServer(Configuration["ConnectionStrings:RecipeContext"]));
 
             //services.AddTransient<IEmailSender, EmailSender>();
             //services.Configure<AuthMessageSenderOptions>(Configuration);

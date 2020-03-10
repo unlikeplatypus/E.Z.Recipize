@@ -3,25 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EZRecipize.Models
 {
     public class RecipeStep
     {
 
+        [Key]
+        private int id;
+
         [Required(ErrorMessage ="you need to put the instructions in for this step")]
         public string Instructions { get; set; }
+
         public List<Ingredient> Ingredients { get; set; }
+        [NotMapped]
         public List<string> RequiredCookware { get; set; }
+
         public string TempRequiredCookware { get; set; }
+        [NotMapped]
         public List<string> SuggestedCookware { get; set; }
+
         public string TempSuggestedCookware { get; set; }
+
         [Required(ErrorMessage = "you must determin weather or not there is a timer for this step")]
         public bool IsTimer { get; set; } = false;
-        public float Timer { get; set; } = 0;
 
-        public RecipeStep(string instructions, List<Ingredient> ingredients, List<string> requiredCookware, List<string> suggestedCookware, bool isTimer = false, float timer = 0)
+        public int Timer { get; set; } = 0;
+        public string TimerName { get; set; } = "";
+
+        public RecipeStep(string instructions, List<Ingredient> ingredients, List<string> requiredCookware, List<string> suggestedCookware, bool isTimer = false, string tName = "", int timer = 0)
         {
             Instructions = instructions;
             Ingredients = ingredients;
@@ -29,6 +40,7 @@ namespace EZRecipize.Models
             SuggestedCookware = suggestedCookware;
             IsTimer = isTimer;
             Timer = timer;
+            TimerName = tName;
         }
 
         public RecipeStep() { }

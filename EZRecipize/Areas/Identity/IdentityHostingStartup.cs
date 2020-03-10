@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Threading.Tasks;
 using EZRecipize.Services;
 using System;
+using EZRecipize.Models;
 
 [assembly: HostingStartup(typeof(EZRecipize.Areas.Identity.IdentityHostingStartup))]
 namespace EZRecipize.Areas.Identity
@@ -21,6 +22,10 @@ namespace EZRecipize.Areas.Identity
                 services.AddDbContext<EZRecipizeContext>(options =>
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("EZRecipizeContextConnection")));
+
+                services.AddDbContext<RecipeDBContext>(options =>
+                    options.UseSqlServer(
+                        context.Configuration.GetConnectionString("RecipeContext")));
 
                 services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromHours(3));
 

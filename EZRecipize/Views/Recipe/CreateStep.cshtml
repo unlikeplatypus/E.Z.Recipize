@@ -50,6 +50,12 @@
         <input asp-for="Timer" />
         <span asp-validation-for="Timer"></span>
     </p>
+    <p>
+
+        <label asp-for="TimerName">name for the timer</label>
+        <input asp-for="TimerName" />
+        <span asp-validation-for="TimerName"></span>
+    </p>
     @if (Model != null && Model.Ingredients != null)
     {
         foreach (Ingredient i in Model.Ingredients)

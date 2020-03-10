@@ -1,0 +1,151 @@
+﻿@{
+    ViewData["Title"] = "RecipeCooking";
+}
+
+@model DisplayInfo
+
+@if (Model.step.RequiredCookware != null)
+{
+    <p>Required Cookware</p>
+    foreach (string s in Model.step.RequiredCookware)
+    {
+        <p>@s</p>
+    }
+}
+
+@if (Model.step.SuggestedCookware != null)
+{
+    <p>Sugested Cookware</p>
+    foreach (string s in Model.step.SuggestedCookware)
+    {
+        <p>@s</p>
+    }
+}
+
+@if (Model.step.Ingredients != null)
+{
+    <p>Ingreedients</p>
+    foreach (Ingredient i in Model.step.Ingredients)
+    {
+        <p>@i.Name @i.Amount @i.Unit (@i.SpecialInstructions)</p>
+    }
+}
+
+<p>@Model.step.Instructions</p>
+
+@if (Model.timers.Count > 0)
+{
+    <p>Active Timers:</p>
+    foreach (KeyValuePair<string, int> timer in Model.timers)
+    {
+        <p>@timer.Key @timer.Value</p>
+    }
+}
+
+<input type=”text” readonly=”true” size=”8″ id=”counter” style=”text-align:center; font-size:x-large; font-weight:bold; color:Red;” />
+
+<input type=”hidden” size=”8″ id=”HidHours” value=”<%=HidH.Value%>“/>
+
+<input type=”hidden” size=”8″ id=”HidMinutes” value=”<%=HidM.Value%>“/>
+
+<input type=”hidden” size=”8″ id=”HidSeconds” value=”<%=HidS.Value%>“/>
+
+<asp:HiddenField ID=”HidH” runat=”server” Value=”0″ />
+
+<asp:HiddenField ID=”HidM” runat=”server” Value=”0″ />
+
+<asp:HiddenField ID=”HidS” runat=”server” Value=”0″ />
+
+
+
+<a asp-action="Tutorial">NextStep</a>
+
+<script>
+
+    var hours = document.getElementById(‘HidHours’).value;
+
+    var minutes = document.getElementById(‘HidMinutes’).value;
+
+    var seconds = document.getElementById(‘HidSeconds’).value;
+
+    function
+
+        display() {
+
+        if (seconds <= 0) {
+
+            if ((hours == 0) && (minutes == 0))
+
+                seconds = 0;
+
+            else {
+
+                seconds = 60;
+
+                minutes -= 1;
+
+            }
+
+        }
+
+        if (minutes <= 0) {
+
+            if ((hours < 0) && (minutes < 0)) {
+
+                hours = minutes = seconds = 0;
+
+            }
+
+            else {
+
+                if ((hours == 0) && (minutes == 0))
+
+                    hours = minutes = 0;
+
+                if ((hours > 0) && (minutes < 0)) {
+
+                    minutes = 59;
+
+                    hours -= 1;
+
+                }
+
+            }
+
+        }
+
+        if ((minutes <= -1) || (hours <= -1)) {
+
+            if (hours <= -1) {
+
+                minutes = 0;
+
+                hours += 1;
+
+            }
+
+            else
+
+                minutes -= 1;
+
+            seconds = 0;
+
+            minutes += 1;
+
+        }
+
+        else
+
+            if (seconds > 0)
+
+                seconds -= 1;
+
+        document.getElementById(‘counter’).value = hours +“: ”+minutes +“: ”+seconds;
+
+        setTimeout(“display() ”, 1000);
+
+    }
+
+    display();
+
+</script>

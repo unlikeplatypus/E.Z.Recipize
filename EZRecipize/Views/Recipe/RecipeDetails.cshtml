@@ -55,7 +55,10 @@
                 <p>@Model.Steps.ElementAt(i).Instructions</p>
             }
             <div>
-                <button class="btn-hover color-8" onclick="location.href = '/Recipe/Recipes'">Start Tutorial</button>
+                <form action="/" method="post">
+
+                    <button class="btn-hover color-8" asp-controller="Cooking" asp-action="Index" asp-route-r="@Model.Id">Start Tutorial</button>
+                </form>
             </div>
         </div>
     </div>
