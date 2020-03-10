@@ -22,11 +22,6 @@ namespace EZRecipize.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("EZRecipizeContextConnection")));
 
-                services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromHours(3));
-
-                services.AddTransient<IEmailSender, EmailSender>();
-                services.Configure<AuthMessageSenderOptions>(context.Configuration);
-
                 services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                .AddEntityFrameworkStores<EZRecipizeContext>();
 
