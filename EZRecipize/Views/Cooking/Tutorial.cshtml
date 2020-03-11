@@ -38,11 +38,11 @@
     <p>Active Timers:</p>
     foreach (KeyValuePair<string, int> timer in Model.timers)
     {
-        <p>@timer.Key @timer.Value</p>
+        <p>@timer.Key: @timer.Value min</p>
     }
 }
 
-<input type=”text” readonly=”true” size=”8″ id=”counter” style=”text-align:center; font-size:x-large; font-weight:bold; color:Red;” />
+@*<input type=”text” readonly=”true” size=”8″ id=”counter” style=”text-align:center; font-size:x-large; font-weight:bold; color:Red;” />
 
 <input type=”hidden” size=”8″ id=”HidHours” value=”<%=HidH.Value%>“/>
 
@@ -54,13 +54,13 @@
 
 <asp:HiddenField ID=”HidM” runat=”server” Value=”0″ />
 
-<asp:HiddenField ID=”HidS” runat=”server” Value=”0″ />
+<asp:HiddenField ID=”HidS” runat=”server” Value=”0″ />*@
 
 
 
 <a asp-action="Tutorial">NextStep</a>
 
-<script>
+@*<script>
 
     var hours = document.getElementById(‘HidHours’).value;
 
@@ -148,4 +148,4 @@
 
     display();
 
-</script>
+</script>*@

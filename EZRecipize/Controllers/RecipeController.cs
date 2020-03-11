@@ -93,54 +93,28 @@ namespace EZRecipize.Controllers
         {
             if (ModelState.IsValid && !addingIngredient)
             {
+                recipeStep.TempRequiredCookware = s.TempRequiredCookware;
+                recipeStep.TempSuggestedCookware = s.TempSuggestedCookware;
                 recipeStep.SeperateListStrings();
                 recipeStep.Instructions = s.Instructions;
                 recipeStep.IsTimer = s.IsTimer;
                 recipeStep.Timer = s.Timer;
                 recipeStep.TimerName = s.TimerName;
-                if (s.RequiredCookware != null && s.RequiredCookware.Count > 0 && s.RequiredCookware.ElementAt(0) != null && recipeStep.RequiredCookware != null && s.RequiredCookware.Count != recipeStep.RequiredCookware.Count)
-                {
-                    for (int i = 0; i < s.RequiredCookware.Count; i++)
-                    {
-
-                        recipeStep.RequiredCookware.Add(s.RequiredCookware.ElementAt(i));
-                    }
-                }
-                if (s.SuggestedCookware != null && s.SuggestedCookware.Count > 0 && s.SuggestedCookware.ElementAt(0) != null && recipeStep.SuggestedCookware != null && s.SuggestedCookware.Count != recipeStep.SuggestedCookware.Count)
-                {
-                    for (int i = 0; i < s.SuggestedCookware.Count; i++)
-                    {
-                        recipeStep.SuggestedCookware.Add(s.SuggestedCookware.ElementAt(i));
-                    }
-                }
+                
 
                 recipe.Steps.Add(recipeStep);
                 return View("Create", recipe);
             }
             else if(addingIngredient)
             {
+                recipeStep.TempRequiredCookware = s.TempRequiredCookware;
+                recipeStep.TempSuggestedCookware = s.TempSuggestedCookware;
+                recipeStep.SeperateListStrings();
                 recipeStep.Instructions = s.Instructions;
                 recipeStep.IsTimer = s.IsTimer;
                 recipeStep.Timer = s.Timer;
                 recipeStep.TimerName = s.TimerName;
                 recipeStep.TempRequiredCookware = s.TempRequiredCookware;
-                if (s.RequiredCookware != null && s.RequiredCookware.Count > 0 && s.RequiredCookware.ElementAt(0) != null && recipeStep.RequiredCookware != null && s.RequiredCookware.Count != recipeStep.RequiredCookware.Count)
-                {
-                    for (int i = 0; i < s.RequiredCookware.Count; i++)
-                    {
-                        
-                        recipeStep.RequiredCookware.Add(s.RequiredCookware.ElementAt(i));
-                    }
-                }
-                recipeStep.TempSuggestedCookware = s.TempSuggestedCookware;
-                if (s.SuggestedCookware != null && s.SuggestedCookware.Count > 0 && s.SuggestedCookware.ElementAt(0) != null && recipeStep.SuggestedCookware != null && s.SuggestedCookware.Count != recipeStep.SuggestedCookware.Count)
-                {
-                    for (int i = 0; i < s.SuggestedCookware.Count; i++)
-                    {
-                        recipeStep.SuggestedCookware.Add(s.SuggestedCookware.ElementAt(i));
-                    }
-                }
-                //recipeStep = s;
 
                 return RedirectToAction("CreateIngredient", recipeStep);
             }
