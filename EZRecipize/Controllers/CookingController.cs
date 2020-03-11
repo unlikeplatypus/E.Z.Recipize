@@ -22,15 +22,23 @@ namespace EZRecipize.Controllers
 
         public IActionResult Tutorial()
         {
-            Info.step = recipe.Steps.ElementAt(stepNum);
-            if(Info.step.IsTimer)
+            if(stepNum < recipe.Steps.Count())
             {
-                Info.timers.Add(Info.step.TimerName, Info.step.Timer);
+                Info.step = recipe.Steps.ElementAt(stepNum);
+                if(Info.step.IsTimer)
+                {
+                    Info.timers.TryAdd(Info.step.TimerName, Info.step.Timer);
+                }
+                stepNum++;
+
+                return View(Info);
             }
-            stepNum++;
-
-            return View(Info);
-
+            else
+            {
+                stepNum = 0;
+                Info = new DisplayInfo();
+                return View("Finshed", recipe.Id);
+            }
 
         }
 
