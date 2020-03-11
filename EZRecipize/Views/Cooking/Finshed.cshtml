@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Finshed";
+}
+
+@model int
+<br />
+<div class="grayBox">
+    <h1>Recipe Complete</h1>
+    <h1>Enjoy your meal</h1>
+
+    <form action="/" method="post">
+
+        <button class="btn-hover color-8" asp-controller="Recipe" asp-action="RecipeDetails" asp-route-recipeId="@Model">Back to Details</button>
+    </form>
+</div>
+
