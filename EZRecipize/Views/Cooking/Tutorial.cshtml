@@ -6,8 +6,18 @@
 
 <br />
 <div class="wrapper">
+    <div class="RecipeBox TimerBox">
+            <h2>Active Timers:</h2>
+        @if (Model.timers.Count > 0)
+        {
+            foreach (KeyValuePair<string, int> timer in Model.timers)
+            {
+                <p>@timer.Key: @timer.Value min</p>
+            }
+        }
+    </div>
     <div class="RecipeBox CookwareBox">
-            <h3>Required Cookware:</h3>
+        <h3>Required Cookware:</h3>
         @if (Model.step.RequiredCookware != null)
         {
             @foreach (string s in Model.step.RequiredCookware)
@@ -16,7 +26,7 @@
             }
         }
 
-            <h3>Sugested Cookware:</h3>
+        <h3>Sugested Cookware:</h3>
         @if (Model.step.SuggestedCookware != null)
         {
             @foreach (string s in Model.step.SuggestedCookware)
@@ -26,8 +36,8 @@
         }
     </div>
 
-    <div class="RecipeBox IngredientBox">
-            <h3>Ingredients:</h3>
+    <div class="RecipeBox IngredientBox2">
+        <h3>Ingredients:</h3>
         @if (Model.step.Ingredients != null)
         {
             @foreach (Ingredient i in Model.step.Ingredients)
@@ -41,18 +51,9 @@
         <h3>Step:</h3>
         <p>@Model.step.Instructions</p>
 
-        @if (Model.timers.Count > 0)
-        {
-            <h2>Active Timers:</h2>
-            foreach (KeyValuePair<string, int> timer in Model.timers)
-            {
-                <p>@timer.Key: @timer.Value min</p>
-            }
-        }
-
         <form action="/" method="post">
             <button class="btn-hover color-8" asp-controller="Cooking" asp-action="Tutorial">NextStep</button>
-            </form>
+        </form>
 
     </div>
 
