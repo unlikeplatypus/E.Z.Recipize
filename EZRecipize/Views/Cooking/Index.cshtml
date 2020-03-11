@@ -5,9 +5,11 @@
 
 @model Recipe
 
+<br />
+    <div class="grayBox">
+        <h1>Begin cooking @Model.RecipeName</h1>
+        <form action="/" method="post">
 
-    <h1>Begin cooking @Model.RecipeName</h1>
-    <form action="/" method="post">
-
-        <button asp-controller="Cooking" asp-action="Tutorial">Begin</button>
-    </form>
+            <button class="btn-hover color-8" asp-controller="Cooking" asp-action="Tutorial">Begin</button>
+        </form>
+    </div>
