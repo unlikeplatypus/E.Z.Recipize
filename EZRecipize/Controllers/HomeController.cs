@@ -11,17 +11,18 @@ namespace EZRecipize.Controllers
 {
     public class HomeController : Controller
     {
-        private RecipeDBContext _db;
+        private readonly RecipeDBContext _db;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, RecipeDBContext context) : base()
         {
+            _db = context;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            return View(_db.Recipes);
+            return View(_db.Recipes.ToList());
         }
 
         public IActionResult About()

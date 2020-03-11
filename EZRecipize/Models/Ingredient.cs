@@ -19,8 +19,9 @@ namespace EZRecipize.Models
 
         public Ingredient() { }
 
+        //private long key;
         [Key]
-        private long id;
+        public int id { get; set; }
 
         [Required(ErrorMessage = "you need to put what the ingredient is called")]
         public string Name { get; set; }
@@ -31,7 +32,7 @@ namespace EZRecipize.Models
         [UIHint("if there is a size of vegtable or another factor into how much is used")]
         public string SpecialInstructions { get; set; }
 
-        HasKey
+        public int RecipeStepid { get; set; }
 
     }
 }

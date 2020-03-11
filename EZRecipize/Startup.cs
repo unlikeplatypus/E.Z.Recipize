@@ -33,7 +33,7 @@ namespace EZRecipize
 
             //services.AddDbContext<RecipeDBContext>(opt => opt.UseSqlServer(C))
             //services.AddDbContext<RecipeDBContext>(opt => opt.UseSqlServer(Configuration["ConnectionStrings:RecipeContext"]));
-
+            services.AddDbContext<RecipeDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("RecipeContext")));
             //services.AddTransient<IEmailSender, EmailSender>();
             //services.Configure<AuthMessageSenderOptions>(Configuration);
         }

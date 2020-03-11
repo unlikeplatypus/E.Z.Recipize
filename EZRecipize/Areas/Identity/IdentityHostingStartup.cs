@@ -23,9 +23,7 @@ namespace EZRecipize.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("EZRecipizeContextConnection")));
 
-                services.AddDbContext<RecipeDBContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("RecipeContext")));
+  
 
                 services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromHours(3));
 

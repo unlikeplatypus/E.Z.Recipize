@@ -10,6 +10,11 @@ namespace EZRecipize.Controllers
     public class CookingController : Controller
     {
         private RecipeDBContext _db;
+        public CookingController(RecipeDBContext context) : base()
+        {
+            _db = context;
+        }
+
         private static Recipe recipe;
         private static DisplayInfo Info = new DisplayInfo();
         private static int stepNum = 0;

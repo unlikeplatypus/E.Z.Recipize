@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EZRecipize.Models
 {
@@ -15,17 +17,17 @@ namespace EZRecipize.Models
             RecipeName = recipeName;
             RecipeDescription = recipeDescription;
             Steps = steps;
-            Id = Count++;
+            //Id = Count++;
         }
         public Recipe() 
         {
             RecipeName = "";
             RecipeDescription = "";
             Steps = new List<RecipeStep>();
-            Id = Count++;
+            //Id = Count++;
         }
 
-        [Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "the recipe needs to have a name")]

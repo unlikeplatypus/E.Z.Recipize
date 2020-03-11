@@ -10,8 +10,7 @@ namespace EZRecipize.Models
     public class RecipeStep
     {
 
-        [Key]
-        private int id;
+        public int id { get; set; }
 
         [Required(ErrorMessage ="you need to put the instructions in for this step")]
         public string Instructions { get; set; }
@@ -31,6 +30,7 @@ namespace EZRecipize.Models
 
         public int Timer { get; set; } = 0;
         public string TimerName { get; set; } = "";
+        public int RecipeId { get; }
 
         public RecipeStep(string instructions, List<Ingredient> ingredients, List<string> requiredCookware, List<string> suggestedCookware, bool isTimer = false, string tName = "", int timer = 0)
         {
