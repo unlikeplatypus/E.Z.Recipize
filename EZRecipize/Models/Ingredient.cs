@@ -31,7 +31,6 @@ namespace EZRecipize.Models
         [UIHint("if there is a size of vegtable or another factor into how much is used")]
         public string SpecialInstructions { get; set; }
 
-        HasKey
 
     }
 }

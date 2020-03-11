@@ -9,14 +9,14 @@ namespace EZRecipize.Controllers
 {
     public class CookingController : Controller
     {
-        private RecipeDBContext _db;
+        //private RecipeDBContext _db;
         private static Recipe recipe;
         private static DisplayInfo Info = new DisplayInfo();
         private static int stepNum = 0;
 
         public IActionResult Index(int rId)
         {
-            recipe =  _db.Recipes.Where(r => r.Id == rId).FirstOrDefault();
+            recipe =  Repo.recipes.Where(r => r.Id == rId).FirstOrDefault();
             return View(recipe);
         }
 

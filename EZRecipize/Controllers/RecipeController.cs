@@ -9,13 +9,13 @@ namespace EZRecipize.Controllers
 {
     public class RecipeController : Controller
     {
-        private RecipeDBContext _db;
+        //private RecipeDBContext _db;
         private static Recipe recipe;
         private static RecipeStep recipeStep;
 
         public IActionResult Recipes()
         {
-            return View(_db.Recipes);
+            return View(Repo.recipes);
         }
 
         //public IActionResult RecipeDetails(Recipe r)
@@ -25,7 +25,7 @@ namespace EZRecipize.Controllers
 
         public IActionResult RecipeDetails(int recipeId)
         {
-            Recipe r = _db.Recipes.Where(r => r.Id == recipeId).FirstOrDefault();
+            Recipe r = Repo.recipes.Where(r => r.Id == recipeId).FirstOrDefault();
             return View(r);
         }
 
@@ -54,7 +54,7 @@ namespace EZRecipize.Controllers
                     recipe.Steps.Last().SeperateListStrings();
                 }
                 recipeTemp.Steps = recipe.Steps;
-                _db.Recipes.Add(recipeTemp);
+                Repo.recipes.Add(recipeTemp);
                 return View("RecipeDetails", recipeTemp);
             }
             else if(addingStep)
